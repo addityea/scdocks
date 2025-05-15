@@ -17,7 +17,9 @@ RUN apt-get update && apt-get install -y \
     procps \
     tzdata \
     poppler-utils \
-    libhdf5-dev
+    libhdf5-dev \
+    automake \
+    patch
 # Set timezone and locale
 ENV TZ=Europe/Stockholm
 ENV LANG=C.UTF-8
@@ -49,23 +51,7 @@ RUN echo 'options(BioC_mirror = "https://packagemanager.posit.co/bioconductor/la
 
 RUN R -e 'BiocManager::install("rhdf5"); library(rhdf5)'
 RUN R -e 'BiocManager::install("rhdf5filters"); library(rhdf5filters)'
-RUN R -e 'devtools::install_github("cellgeni/schard"); library(schard)'
-# Install patch for hdf5r
-RUN apt-get install -y \
-    automake \
-    patch
+#RUN R -e 'devtools::install_github("cellgeni/schard"); library(schard)'
 
-RUN conda run -n singler conda install -c conda-forge r-hdf5r
+RUN R -e 'pak::pak("scverse/anndataR", dependencies = TRUE)'
 
-RUN apt-get install -y \
-    autoconf \
-    build-essential \
-    libtool \
-    m4 \
-    file
-RUN R -e 'remotes::install_github("mojaveazure/seurat-disk"); library(SeuratDisk)'
-# Clean up
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /tmp/* && \
-    rm -rf /var/tmp/*

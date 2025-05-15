@@ -12,3 +12,5 @@ dependencies:
 - r-ggplot2
 - r-viridis
 - r-pheatmap
+- r-hdf5r
+- r-pak
