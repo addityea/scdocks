@@ -1,0 +1,21 @@
+[workspace]
+authors = ["Aditya Singh <dr.singhaditya@hotmail.com>"]
+channels = ["conda-forge", "bioconda"]
+name = "singler"
+platforms = ["linux-aarch64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+bioconductor-anndatar = ">=1.0.2,<2"
+bioconductor-singler = ">=2.12.0,<3"
+bioconductor-rhdf5 = ">=2.54.1,<3"
+bioconductor-singlecellexperiment = ">=1.32.0,<2"
+r-seuratobject = ">=5.3.0,<6"
+bioconductor-celldex = ">=1.20.0,<2"
+r-yaml = ">=2.3.12,<3"
+r-ggplot2 = ">=4.0.2,<5"
+r-viridis = ">=0.6.5,<0.7"
+r-seurat = ">=5.4.0,<6"
+r-pheatmap = ">=1.0.13,<2"
