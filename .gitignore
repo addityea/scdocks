@@ -3,3 +3,6 @@
 !.pixi/config.toml
 .pixi/
 .nextflow
+
+# macOS
+.DS_Store

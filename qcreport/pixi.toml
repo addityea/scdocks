@@ -1,0 +1,17 @@
+[workspace]
+authors = ["Aditya Singh <dr.singhaditya@hotmail.com>"]
+channels = ["conda-forge", "bioconda"]
+name = "qcreport"
+platforms = ["linux-aarch64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+jupyter = ">=1.1.1,<2"
+papermill = ">=2.7.0,<3"
+nbconvert = ">=7.17.0,<8"
+scanpy = ">=1.12,<2"
+
+[pypi-dependencies]
+quarto-cli = ">=1.8.27, <2"

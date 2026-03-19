@@ -18,3 +18,6 @@ Holds the requirements to run the `CELLTYPES_SINGLER` module of the pipeline.
 | Seurat    | 5.1.0              |
 | ggplot2   | 3.5.2              |
 
+## qcreport
+
+Holds the requirements to run the `QC_REPORT` module of the pipeline.
