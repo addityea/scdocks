@@ -15,7 +15,12 @@ RUN pixi shell-hook > /shell-hook.sh
 RUN echo 'exec "$@"' >> /shell-hook.sh
 
 FROM ubuntu:latest AS production
+RUN apt-get update && apt-get install -y \
+    libcurl4-openssl-dev \
+    libssl-dev
 
+# Remove cached files to reduce image size
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # only copy the production environment into prod container
 # please note that the "prefix" (path) needs to stay the same as in the build container
 COPY --from=build /app/.pixi/envs/default /app/.pixi/envs/default
